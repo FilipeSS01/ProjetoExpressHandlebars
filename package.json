@@ -5,5 +5,9 @@
   "main": "index.js",
   "repository": "https://github.com/FilipeSS01/ProjetoExpressHandlebars.git",
   "author": "Filipe <filipess671@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "express-handlebars": "^7.0.7"
+  }
 }
