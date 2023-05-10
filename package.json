@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "PW2 - Node com express e handlebars",
   "main": "index.js",
+  "scripts": {
+    "serve": "node src/index.js",
+    "dev": "nodemon src/index.js"
+  },
   "repository": "https://github.com/FilipeSS01/ProjetoExpressHandlebars.git",
   "author": "Filipe <filipess671@gmail.com>",
   "license": "MIT",
