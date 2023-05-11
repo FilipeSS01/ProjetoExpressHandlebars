@@ -25,15 +25,15 @@ app.get('/', (req, res) => {
 // ===============================
 
 app.get('/ex1', (req, res) => {
-    res.render('home', {
-        title: 'Exercício 1' 
+    res.render('ex1', {
+        title: 'Exercício 1'
     });
 });
 
 app.post('/ex1', (req, res) => {
     const number = req.body.number;
 
-    res.render('home', {
+    res.render('ex1', {
         title: 'Exercício 1',
         result: number > 0 ? `${number} é positivo` : number < 0 ? `${number} é negativo` : `${number} é igual a 0`
     });
@@ -43,9 +43,24 @@ app.post('/ex1', (req, res) => {
 //         Exercício 2
 // ===============================
 
-app.get('/ex2', (req, res) => {    
-    res.render('home', {
-        title: 'Exercício 2'
+app.get('/ex2', (req, res) => {  
+    let number = req.query.number;
+    console.log(typeof(number));
+    let result = `${number} x 0 = ${number*0}<br>
+                ${number} x 1 = ${number*1}<br>
+                ${number} x 2 = ${number*2}<br>
+                ${number} x 3 = ${number*3}<br>
+                ${number} x 4 = ${number*4}<br>
+                ${number} x 5 = ${number*5}<br>
+                ${number} x 6 = ${number*6}<br>
+                ${number} x 7 = ${number*7}<br>
+                ${number} x 8 = ${number*8}<br>
+                ${number} x 9 = ${number*9}<br>
+                ${number} x 10 = ${number*10}`;     
+    
+    res.render('ex2',{
+        title: 'Exercício 2',
+        result: result
     });
 });
 
@@ -74,8 +89,19 @@ app.get('/ex4', (req, res) => {
 // ===============================
 
 app.get('/ex5', (req, res) => {
-    res.render('home', {
-        title: 'Exercício 5' 
+    res.render('ex5', {
+        title: 'Exercício 5'
+    });
+});
+
+app.post('/ex5', (req, res) => {
+    let value1 = req.body.value1;
+    let value2 = req.body.value2;
+    let value3 = req.body.value3;
+    let result = ((parseFloat(value1) + parseFloat(value2) + parseFloat(value3))/3).toFixed(2);
+    res.render('ex5', {
+        title: 'Exercício 5',
+        result: result >= 6 ? `Média = ${result}<br>APROVADO` : `Média = ${result}<br>REPROVADO`
     });
 });
 
