@@ -69,7 +69,7 @@ app.get('/ex2', (req, res) => {
 // ===============================
 
 app.get('/ex3', (req, res) => {
-    res.render('home', {
+    res.render('ex3', {
         title: 'Exercício 3' 
     });
 });
@@ -79,8 +79,28 @@ app.get('/ex3', (req, res) => {
 // ===============================
 
 app.get('/ex4', (req, res) => {
-    res.render('home', {
+    res.render('ex4', {
         title: 'Exercício 4' 
+    });
+});
+
+app.post('/ex4', (req, res) => {
+    let weight = req.body.weight;
+    let height = req.body.height;
+    let imc = (weight / (height * height)).toFixed(2);
+    let min = (18.5 * (height * height)).toFixed(2);
+    let max = (29.9 * (height * height)).toFixed(2);
+    let med = ((18.5 * (height * height) + 29.9 * (height * height)) / 2).toFixed(2);
+    let result = imc < 18.5 ? `IMC = ${imc}<br>Você está abaixo do peso ideal<br>Peso Mínimo: ${min}<br>Peso médio = ${med}<br>Peso máximo = ${max}` 
+    : imc >= 18.5 && imc <= 24.9 ? `IMC = ${imc}<br>Parabéns - Você está em seu peso normal!<br>Peso Mínimo: ${min}<br>Peso médio = ${med}<br>Peso máximo = ${max}` 
+    : imc >= 25 && imc <= 29.9 ? `IMC = ${imc}<br>Você está acima de seu peso (sobrepeso)<br>Peso Mínimo: ${min}<br>Peso médio = ${med}<br>Peso máximo = ${max}`
+    : imc >= 30 && imc <= 34.9 ? `IMC = ${imc}<br>Obesidade grau I<br>Peso Mínimo: ${min}<br>Peso médio = ${med}<br>Peso máximo = ${max}`
+    : imc >= 35 && imc <= 39.9 ? `IMC = ${imc}<br>Obesidade grau II<br>Peso Mínimo: ${min}<br>Peso médio = ${med}<br>Peso máximo = ${max}`
+    : `IMC = ${imc}<br>Obesidade grau III<br>Peso Mínimo: ${min}<br>Peso médio = ${med}<br>Peso máximo = ${max}`
+
+    res.render('ex4', {
+        title: 'Exercício 4',
+        result: result
     });
 });
 
@@ -139,8 +159,21 @@ app.get('/ex7', (req, res) => {
 // ===============================
 
 app.get('/ex8', (req, res) => {
-    res.render('home', {
-        title: 'Exercício 8' 
+    res.render('ex8', {
+        title: 'Exercício 8'
+    });
+});
+
+app.post('/ex8', (req, res) => {
+    let name = req.body.name;
+    let email = req.body.email;
+    let cpf = req.body.cpf;
+    let age = req.body.age;
+    const result = `Nome: ${name}<br>E-mail: ${email}<br>CPF: ${cpf}<br>Idade: ${age}`
+
+    res.render('ex8', {
+        title: 'Exercício 8',
+        result: result
     });
 });
 
