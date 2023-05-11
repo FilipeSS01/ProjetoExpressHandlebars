@@ -124,8 +124,32 @@ app.get('/ex8', (req, res) => {
 // ===============================
 
 app.get('/ex9', (req, res) => {
-    res.render('home', {
+    res.render('ex9', {
         title: 'Exercício 9' 
+    });
+});
+
+app.post('/ex9', (req, res) => {
+    const numbers = req.body.numbers;
+    const information = { countNegative: 0, countPositive: 0, countEven: 0, countOdd: 0 };
+
+    numbers.split(' ').forEach(number => {
+        information.countNegative += number < 0 ? 1 : 0;
+        information.countPositive += number >= 0 ? 1 : 0;
+        information.countEven += number % 2 === 0 ? 1 : 0;
+        information.countOdd += number % 2 !== 0 ? 1 : 0;
+    });
+
+    const result = `
+        Quantidade de negativos digitados: ${information.countNegative}<br>
+        Quantidade de positivos digitados: ${information.countPositive}<br>
+        Quantidade de pares digitados: ${information.countEven}<br>
+        Quantidade de ímpares digitados: ${information.countOdd}
+    `;
+
+    res.render('ex9', {
+        title: 'Exercício 9',
+        result: result
     });
 });
 
@@ -134,8 +158,17 @@ app.get('/ex9', (req, res) => {
 // ===============================
 
 app.get('/ex10', (req, res) => {
-    res.render('home', {
+    res.render('ex10', {
         title: 'Exercício 10' 
+    });
+});
+
+app.post('/ex10', (req, res) => {
+    const numbers = req.body.numbers;
+    const result = numbers.split(' ').reverse().join(' ');
+    res.render('ex10', {
+        title: 'Exercício 10',
+        result: result
     });
 });
 
@@ -184,20 +217,17 @@ app.get('/ex11', (req, res) => {
 app.get('/ex12', (req, res) => {
     let result = '';
     let [num1, num2] = [0, 1];
-    let numeros = [];
+    let number = [];
 
     for (let i = 1; i <= 150; i++) {
-        numeros.push(num1);
+        number.push(num1);
         [num1, num2] = [num2, num1 + num2];
         result += `${i}° - ${num2}<br>`;
     }
+
     res.render('ex12', {
         title: 'Exercício 12',
         result: result
-    });
-
-    res.render('ex12', {
-        title: 'Exercício 12' 
     });
 });
 
@@ -218,6 +248,7 @@ app.post('/ex13', (req, res) => {
     for (let i = 2; isPrime && i <= Math.sqrt(number); i++) {
         isPrime = number % i !== 0;
     }
+
     res.render('ex13', {
         title: 'Exercício 13',
         result: isPrime ? 'Verdadeiro! É um número primo.' : 'Falso! Não é um número primo.'
@@ -237,24 +268,23 @@ app.get('/ex14', (req, res) => {
 
 app.post('/ex14', (req, res) => {
     const months = {
-        '1': 'Janeiro',
-        '2': 'Fevereiro',
-        '3': 'Março',
-        '4': 'Abril',
-        '5': 'Maio',
-        '6': 'Junho',
-        '7': 'Julho',
-        '8': 'Agosto',
-        '9': 'Setembro',
-        '10': 'Outubro',
-        '11': 'Novembro',
-        '12': 'Dezembro',
+        1: 'Janeiro',
+        2: 'Fevereiro',
+        3: 'Março',
+        4: 'Abril',
+        5: 'Maio',
+        6: 'Junho',
+        7: 'Julho',
+        8: 'Agosto',
+        9: 'Setembro',
+        10: 'Outubro',
+        11: 'Novembro',
+        12: 'Dezembro',
     };
 
-    let result = months[req.body.number] || 'Não existe um mês correspondente a este número.';
     res.render('ex14', {
         title: 'Exercício 14',
-        result: result 
+        result: months[req.body.number] || 'Não existe um mês correspondente a este número.' 
     });
 });
 
@@ -270,10 +300,9 @@ app.get('/ex15', (req, res) => {
 
 app.post('/ex15', (req, res) => {
     let date = new Date(req.body.date.replaceAll('-', '/'));
-    let result = date.toLocaleDateString("pt-BR", { day: "2-digit", month: "long", year: "numeric", });
     res.render('ex15', {
        title: 'Exercício 15',
-       result: result
+       result: date.toLocaleDateString("pt-BR", { day: "2-digit", month: "long", year: "numeric", })
     });
 });
 
