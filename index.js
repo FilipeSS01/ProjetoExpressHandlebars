@@ -31,8 +31,20 @@ app.get('/ex1', function(req, res){
 });
 
 app.post('/ex1', function(req, res){
+    let number = req.body.number;
+    let result;
+
+    if(number > 0){
+        result = `${number} é positvo`;
+    }else if( number < 0){
+        result = `${number} é negativo`;
+    }else{
+        result = `${number} é igual a 0`;
+    }
+
     res.render('home', {
-        title: 'Exercício 1'
+        title: 'Exercício 1',
+        result: result
     })
 });
 
@@ -81,9 +93,20 @@ app.get('/ex5', function(req, res){
 // ===============================
 
 app.get('/ex6', function(req, res){
-    res.render('home', {
-        title: 'Exercício 6' 
+    res.render('ex6', {
+        title: 'Exercício 6',
+        result: "assets/img/neutro.png"
     })
+});
+
+app.post('/ex6', function(req, res){
+    let ethanol = req.body.ethanol;
+    let percentage = req.body.gas * 0.7;
+    result = (ethanol < percentage) ? "assets/img/etanol.png" : "assets/img/gasolina.png";
+    res.render('ex6', {
+        title: 'Exercício 6',
+        result: result
+    });
 });
 
 // ===============================

@@ -1,0 +1,29 @@
+<meta charset="utf-8">
+<h1>Calculadora Flex</h1>
+<img src="{{result}}" id="imgResultadoVantagem" alt=""><br><br>
+<form method="post">
+    <input type="number" name="ethanol" placeholder="Etanol" step="0.01" />
+    <input type="number" name="gas" placeholder="Gasolina" step="0.01" />
+    <button>
+        Vantagem
+    </button>
+    <button type="reset">
+        Limpar
+    </button>
+</form>
+
+<style>
+    input[type=number] {
+        width: 88px;
+    }
+</style>
+
+<script>
+    const formulario = document.querySelector("form");
+    const imgResultadoVantagem = document.querySelector("#imgResultadoVantagem");
+    formulario.addEventListener("reset", function () {
+        imgResultadoVantagem.src = "assets/images/neutro.png";
+    });
+</script>
+
+<a href="/">Voltar</a>
