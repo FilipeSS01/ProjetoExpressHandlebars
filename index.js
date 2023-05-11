@@ -31,12 +31,11 @@ app.get('/ex1', (req, res) => {
 });
 
 app.post('/ex1', (req, res) => {
-    let number = req.body.number;
-    let result = number > 0 ? `${number} é positivo` : number < 0 ? `${number} é negativo` : `${number} é igual a 0`;
+    const number = req.body.number;
 
     res.render('home', {
         title: 'Exercício 1',
-        result: result
+        result: number > 0 ? `${number} é positivo` : number < 0 ? `${number} é negativo` : `${number} é igual a 0`
     });
 });
 
@@ -242,7 +241,7 @@ app.get('/ex13', (req, res) => {
 });
 
 app.post('/ex13', (req, res) => {
-    let number = req.body.number;
+    const number = req.body.number;
     let isPrime = number > 1;
 
     for (let i = 2; isPrime && i <= Math.sqrt(number); i++) {
@@ -299,7 +298,7 @@ app.get('/ex15', (req, res) => {
 });
 
 app.post('/ex15', (req, res) => {
-    let date = new Date(req.body.date.replaceAll('-', '/'));
+    const date = new Date(req.body.date.replaceAll('-', '/'));
     res.render('ex15', {
        title: 'Exercício 15',
        result: date.toLocaleDateString("pt-BR", { day: "2-digit", month: "long", year: "numeric", })
