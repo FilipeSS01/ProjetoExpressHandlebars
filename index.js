@@ -32,7 +32,6 @@ app.get('/ex1', (req, res) => {
 
 app.post('/ex1', (req, res) => {
     const number = req.body.number;
-
     res.render('ex1', {
         title: 'Exercício 1',
         result: number > 0 ? `${number} é positivo` : number < 0 ? `${number} é negativo` : `${number} é igual a 0`
@@ -45,7 +44,6 @@ app.post('/ex1', (req, res) => {
 
 app.get('/ex2', (req, res) => {  
     let number = req.query.number;
-    console.log(typeof(number));
     let result = `${number} x 0 = ${number*0}<br>
                 ${number} x 1 = ${number*1}<br>
                 ${number} x 2 = ${number*2}<br>
@@ -115,10 +113,7 @@ app.get('/ex5', (req, res) => {
 });
 
 app.post('/ex5', (req, res) => {
-    let value1 = req.body.value1;
-    let value2 = req.body.value2;
-    let value3 = req.body.value3;
-    let result = ((parseFloat(value1) + parseFloat(value2) + parseFloat(value3))/3).toFixed(2);
+    const result = eval(`${req.body.value1} + ${req.body.value2} + ${req.body.value3}`) / 3;
     res.render('ex5', {
         title: 'Exercício 5',
         result: result >= 6 ? `Média = ${result}<br>APROVADO` : `Média = ${result}<br>REPROVADO`
@@ -165,12 +160,7 @@ app.get('/ex8', (req, res) => {
 });
 
 app.post('/ex8', (req, res) => {
-    let name = req.body.name;
-    let email = req.body.email;
-    let cpf = req.body.cpf;
-    let age = req.body.age;
-    const result = `Nome: ${name}<br>E-mail: ${email}<br>CPF: ${cpf}<br>Idade: ${age}`
-
+    const result = `Nome: ${req.body.name}<br>E-mail: ${req.body.email}<br>CPF: ${req.body.cpf}<br>Idade: ${req.body.age}`
     res.render('ex8', {
         title: 'Exercício 8',
         result: result
