@@ -1,6 +1,16 @@
 <meta charset="utf-8">
-<form method="get">
-    <input type="number" name="number"/>
-    <button type="submit">Enviar</button>
-    <h3>{{{result}}}</h3>
-</form>
+<h5 class="bg-primary">Exercício 2</h5>
+<div class="container p-4">
+    <form method="get" class="input-group">
+        <div class="mb-3">
+            <input type="number" name="number" class="form-control">
+            <div class="form-text">O programa retorna a tabuada referente ao número digitado.</div>
+        </div>
+        <div>
+            <button type="submit" class="btn btn-success mt-4 ms-3">Enviar</button>    
+        </div>
+    </form>
+    {{#if result}}
+        <h3>{{{result}}}</h3>
+    {{/if}}
+</div>
