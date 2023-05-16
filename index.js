@@ -58,7 +58,7 @@ app.get('/ex2', (req, res) => {
     
     res.render('ex2',{
         title: 'Exercício 2',
-        result: result
+        result: (req.query.number) ? result : false
     });
 });
 
