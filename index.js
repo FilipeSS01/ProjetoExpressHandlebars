@@ -144,8 +144,15 @@ app.post('/ex6', (req, res) => {
 // ===============================
 
 app.get('/ex7', (req, res) => {
-    res.render('home', {
-        title: 'Exercício 7' 
+    res.render('ex7', {
+        title: 'Exercício 7'
+    });
+});
+
+app.post('/ex7/', (req, res) => {
+    res.render('ex7', {
+        title: 'Exercício 7',
+        result: `assets/img/face${Math.floor(Math.random() * 6 + 1)}.png`
     });
 });
 
