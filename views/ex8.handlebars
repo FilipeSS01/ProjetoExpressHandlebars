@@ -1,17 +1,25 @@
 <meta charset="utf-8">
-<form method="post">
-    <label for="">Nome:</label>
-    <input type="text" name="name"/>
-    <br>
-    <label for="">E-mail:</label>
-    <input type="text" name="email"/>
-    <br>
-    <label for="">CPF:</label>
-    <input type="text" name="cpf"/>
-    <br>
-    <label for="">Idade:</label>
-    <input type="number" name="age"/>
-    <br>
-    <button type="submit">Enviar</button>
+<h5 class="bg-primary">Exercício 8</h5>
+<form method="post" class="row ms-1">
+    <div class="col">
+        <label for="">Nome:</label>
+        <input type="text" class="form-control" name="name"/>
+    </div>
+    <div class="col">
+        <label for="">E-mail:</label>
+        <input type="text" class="form-control" name="email"/>
+    </div>
+    <div class="col">
+        <label for="">CPF:</label>
+        <input type="text" class="form-control" name="cpf"/>
+    </div>
+    <div class="col">
+        <label for="">Idade:</label>
+        <input type="text" class="form-control" name="age"/>
+    </div>
+    <div class="col">
+        <button type="submit" class="btn btn-success mt-4">Enviar</button>
+    </div>
+    <div class="form-text ms-3">O programa retorna os dados cadastrados.</div>
     <h3>{{{result}}}</h3>
 </form>
