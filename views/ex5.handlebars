@@ -1,8 +1,18 @@
 <meta charset="utf-8">
-<form method="post">
-    <input type="number" step="0.01" name="value1"/>
-    <input type="number" step="0.01" name="value2"/>
-    <input type="number" step="0.01" name="value3"/>
-    <button type="submit">Enviar</button>
+<h5 class="bg-primary">Exercício 5</h5>
+<form method="post" class="row ms-1">
+    <div class="col">
+        <input type="number" class="form-control" step="0.01" name="value1"/>
+    </div>
+    <div class="col">
+        <input type="number" class="form-control" step="0.01" name="value2"/>
+    </div>
+    <div class="col">
+        <input type="number" class="form-control" step="0.01" name="value3"/>
+    </div>
+    <div class="col">
+        <button type="submit" class="btn btn-success mt-4">Enviar</button>
+    </div>
+    <div class="form-text ms-3">O programa retorna o resultado da avaliação do aluno.</div>
     <h3>{{{result}}}</h3>
 </form>

@@ -1,6 +1,15 @@
 <meta charset="utf-8">
-<form method="post">
-    <input type="date" name="date"/>
-    <button type="submit">Enviar</button>
-    <h1>{{result}}</h1>
-</form>
+<h5 class="bg-primary">Exercício 15</h5>
+<div class="container p-4">
+    <form class="input-group" method="post">
+        <div class="mb-3">
+            <label for="data" class="form-label">Data:</label>
+            <input type="date" class="form-control" name="date">
+            <div class="form-text">O programa retorna a data por extenso.</div>
+        </div>
+        <div>
+            <button type="submit" class="btn btn-success mt-4 ms-3" id="botao">Enviar</button>
+    </form>
+    </div>
+    <h3>{{result}}</h3>
+</div>
