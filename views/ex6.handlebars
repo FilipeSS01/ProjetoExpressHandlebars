@@ -1,22 +1,25 @@
 <meta charset="utf-8">
-<h1>Calculadora Flex</h1>
-<img src="{{result}}" id="imgResultadoVantagem" alt=""><br><br>
-<form method="post">
-    <input type="number" name="ethanol" placeholder="Etanol" step="0.01" />
-    <input type="number" name="gas" placeholder="Gasolina" step="0.01" />
-    <button>
-        Vantagem
-    </button>
-    <button type="reset">
-        Limpar
-    </button>
-</form>
-
-<style>
-    input[type=number] {
-        width: 88px;
-    }
-</style>
+<h5 class="bg-primary">Exercício 6</h5>
+<div style="margin-left: 31.2rem;" class="mt-4">
+    <div class="card" style="width: 20rem; height: 25rem;">
+        <div class="card-body">
+            <h5 class="card-title text-center">Calculadora FLEX:</h5>
+            <form method="post">
+                <div class="row ms-2">
+                    <input type="number" step="0.01" class="text-control col-11" placeholder="Etanol" name="ethanol">
+                </div>
+                <div class="row ms-2">
+                    <input type="number" step="0.01" class="text-control col-11 mt-2" placeholder="Gasolina" name="gas">
+                </div>
+                <div class="row ms-2">
+                    <button type="submit" class="btn btn-success btn-sm col-5 me-4 mt-2">Vantagem</button>
+                    <button type="reset" class="btn btn-primary btn-sm col-5 mt-2">Limpar</button>
+                </div>
+            </form>
+        </div>
+        <img src="{{result}}" id="imgResultadoVantagem" alt="" style="width: 70%; margin-left: 3rem; margin-bottom: 4rem;">
+    </div>
+</div>
 
 <script>
     const formulario = document.querySelector("form");
@@ -25,5 +28,3 @@
         imgResultadoVantagem.src = "assets/images/neutro.png";
     });
 </script>
-
-<a href="/">Voltar</a>
