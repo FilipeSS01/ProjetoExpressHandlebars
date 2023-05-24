@@ -1,6 +1,15 @@
 <meta charset="utf-8">
+<h5 class="bg-primary">Exercício 13</h5>
 <form method="post">
-    <input type="number" name="number"/>
-    <button type="submit">Enviar</button>
-    <h1>{{result}}</h1>
+    <div class="row ms-3">
+        <div class="col">
+          <label for="valor">Digite um número:</label>
+          <input type="number" name="number" class="form-control">
+          <div class="form-text">O programa retorna se o número é primo ou não.</div>
+        </div>
+        <div class="col">
+          <button type="submit" class="btn btn-success mt-4" id="botao">Enviar</button>
+        </div>
+        <h3>{{result}}</h3>
+      </div>
 </form>

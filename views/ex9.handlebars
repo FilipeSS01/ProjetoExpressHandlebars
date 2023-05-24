@@ -1,6 +1,13 @@
 <meta charset="utf-8">
-<form method="post">
-    <input type="text" name="numbers"/>
-    <button type="submit">Enviar</button>
-    <h1>{{{result}}}</h1>
+<h5 class="bg-primary">Exercício 9</h5>
+<form method="post" class="row ms-1">
+    <div class="col">
+        <label for="valores">Digite 10 números separados por espaço:</label>
+        <input type="text" class="form-control" name="numbers"/>
+    </div>
+    <div class="col">
+        <button type="submit" class="btn btn-success mt-4">Enviar</button>
+    </div>
+    <div class="form-text ms-3">O programa retorna os tipos de números.</div>
+    <h3>{{{result}}}</h3>
 </form>
